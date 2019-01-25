@@ -31,14 +31,13 @@ elif key_name:
 		for line in f:
 			file_line = line.split('| ')
 			f_dict[file_line[0]] = file_line[1]
-			f_list.append(f_dict)
-	print(f_list)
+			f_list.append(f_dict.copy())
 	for item_list in f_list:
 		for k, v in item_list.items():
 			if k.strip() == key_name.strip():
-				v_list.append(v)
+				v_list.append(v.replace(" \n", ""))
 	if v_list:
-		print(v_list)
+		print(", ".join(v_list))
 else:
 	print("")
 

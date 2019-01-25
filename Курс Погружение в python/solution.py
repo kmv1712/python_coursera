@@ -4,8 +4,7 @@ import functools
 def to_json(func):
     @functools.wraps(func)
     def wrapped(*args, **kwargs):
-        date = func()
-        return json.dumps(date)
+        return json.dumps(func(*args, **kwargs))
     return wrapped
 
 
@@ -15,5 +14,5 @@ def get_data():
     	'data': 42
   	}
 
-get_data()  # вернёт '{"data": 42}'
+print(get_data())  # вернёт '{"data": 42}'
 
